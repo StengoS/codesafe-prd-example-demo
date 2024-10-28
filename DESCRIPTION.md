@@ -1,2 +1,1 @@
-This is an [example dojo](https://github.com/pwncollege/example-dojo).
-Fork this repository, and create your own dojo!
+Codesafe Dojo Demo for the Tools Competition's "Building an Adaptive & Competitive Workforce" Track Product Review Day (Oct. 2024).

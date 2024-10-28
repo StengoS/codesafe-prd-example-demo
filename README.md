@@ -1,6 +1,8 @@
-# Example Dojo
+# Codesafe - Example Demo for the Tools Competition's "Building an Adaptive & Competitive Workforce Track" Product Review Day
 
-This repositories features an example dojo.
+This example dojo uses pwn.college's own [example dojo template](https://github.com/pwncollege/example-dojo). 
+
+This repository features an example dojo.
 
 The dojo is defined by [dojo.yml](./dojo.yml).
 

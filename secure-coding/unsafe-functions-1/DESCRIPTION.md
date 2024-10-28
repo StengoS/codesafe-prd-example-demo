@@ -1,0 +1,1 @@
+Replace the unsafe function while maintaining functionality!

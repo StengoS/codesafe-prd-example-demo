@@ -1,8 +1,8 @@
-id: example
-name: Example Dojo
-type: example
+id: codesafe-prd
+name: Codesafe - PRD Demo
+type: hidden
 award:
-  emoji: 😀
+  emoji: 🛡️
 modules:
   - id: hello
   - id: world
