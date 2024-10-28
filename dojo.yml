@@ -1,8 +1,6 @@
 id: codesafe-prd
 name: Codesafe - PRD Demo
 type: hidden
-award:
-  emoji: 🛡️
 modules:
   - id: hello
   - id: world
