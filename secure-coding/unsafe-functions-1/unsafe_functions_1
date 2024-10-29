@@ -5,7 +5,7 @@ import subprocess
 
 import sys
 print(sys.path)
-sys.path.append("/challenge")
+sys.path.append("/home/hacker")
 print(sys.path)
 
 import unsafe_code
