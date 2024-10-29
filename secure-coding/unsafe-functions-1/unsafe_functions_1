@@ -2,15 +2,11 @@
 
 import unittest
 import subprocess 
-
 import sys
-print(sys.path)
 sys.path.append("/home/hacker")
-print(sys.path)
 
 import unsafe_code
 
-# from codesafe.unsafe_code import list_files
 from unittest.mock import patch, MagicMock
 
 class TestListFiles(unittest.TestCase):
@@ -25,7 +21,8 @@ class TestListFiles(unittest.TestCase):
 
     def test_security_no_shell_execution(self):
         with self.assertRaises(ValueError):
-            unsafe_code.list_files("; whoami ")  # Should raise an error, not execute potentially malicious code
+            # Should raise an error, not execute potentially malicious code
+            unsafe_code.list_files("; whoami ")  
 
 
 # Taken from https://stackoverflow.com/questions/13550039/how-to-use-python-unit-tests-in-self-contained-program
@@ -34,20 +31,25 @@ def run_tests(test_case):
     result = unittest.TestResult()
     case(result)
     if result.wasSuccessful():
+        print("{0}/{0} tests passed!".format(result.testsRun))
         return True
+    
     else:
-        print("Some tests failed!")
+        print("{0}/{1} tests failed!".format(result.failures, result.testsRun))
         for test, err in result.failures + result.errors:
+            print("===================")
             print(test)
             print(err)
+        
+        print("===================")
         return False
 
 
 if run_tests(TestListFiles):
     print(sys.path)
 
-    print("All tests pass!")
+    print("All tests pass! Reading and displaying flag...")
     with open("/flag") as f:
         print(f.read())
 else:
-    print("Some tests fail. Please review and try again.")
+    print("Some tests fail. Please review the test cases and errors, then try again.")
