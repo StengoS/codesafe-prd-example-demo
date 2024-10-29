@@ -3,6 +3,8 @@
 import unittest
 import subprocess 
 
+import sys
+
 from code.unsafe_code import list_files
 from unittest.mock import patch, MagicMock
 
@@ -37,6 +39,8 @@ def run_tests(test_case):
 
 
 if run_tests(TestListFiles):
+    print(sys.path)
+
     print("All tests pass!")
     with open("/flag") as f:
         print(f.read())
