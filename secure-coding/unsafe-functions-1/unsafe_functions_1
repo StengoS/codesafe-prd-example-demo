@@ -35,7 +35,7 @@ def run_tests(test_case):
         return True
     
     else:
-        print("{0}/{1} tests failed!".format(result.failures, result.testsRun))
+        print("{0}/{1} tests failed!".format(len(result.failures), result.testsRun))
         for test, err in result.failures + result.errors:
             print("===================")
             print(test)
@@ -46,8 +46,6 @@ def run_tests(test_case):
 
 
 if run_tests(TestListFiles):
-    print(sys.path)
-
     print("All tests pass! Reading and displaying flag...")
     with open("/flag") as f:
         print(f.read())
