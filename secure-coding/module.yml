@@ -1,4 +1,4 @@
 name: Secure Coding
 challenges:
-  - id: unsafe_functions_1
+  - id: unsafe-functions-1
     name: Unsafe Functions 1
