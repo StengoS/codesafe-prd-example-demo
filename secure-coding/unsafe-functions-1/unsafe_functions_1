@@ -5,9 +5,10 @@ import subprocess
 
 import sys
 print(sys.path)
-sys.path.append("/challenge/code")
+sys.path.append("/challenge/codesafe")
+print(sys.path)
 
-from code.unsafe_code import list_files
+from codesafe.unsafe_code import list_files
 from unittest.mock import patch, MagicMock
 
 class TestListFiles(unittest.TestCase):
