@@ -5,25 +5,27 @@ import subprocess
 
 import sys
 print(sys.path)
-sys.path.append("/challenge/codesafe")
+sys.path.append("/challenge")
 print(sys.path)
 
-from codesafe.unsafe_code import list_files
+import unsafe_code
+
+# from codesafe.unsafe_code import list_files
 from unittest.mock import patch, MagicMock
 
 class TestListFiles(unittest.TestCase):
     def test_list_files(self):
-        result = list_files('./some/directory')
+        result = unsafe_code.list_files('./some/directory')
         self.assertEqual(result, ["file1.txt", "file2.txt"])
 
     @patch('subprocess.check_output', side_effect=subprocess.CalledProcessError(1, 'ls'))
     def test_invalid_directory(self, mock_check_output):
         with self.assertRaises(ValueError):
-            list_files('/invalid/directory')
+            unsafe_code.list_files('/invalid/directory')
 
     def test_security_no_shell_execution(self):
         with self.assertRaises(ValueError):
-            list_files("; whoami ")  # Should raise an error, not execute potentially malicious code
+            unsafe_code.list_files("; whoami ")  # Should raise an error, not execute potentially malicious code
 
 
 # Taken from https://stackoverflow.com/questions/13550039/how-to-use-python-unit-tests-in-self-contained-program
