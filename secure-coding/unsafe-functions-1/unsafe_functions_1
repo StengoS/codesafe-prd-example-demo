@@ -4,6 +4,7 @@ import unittest
 import subprocess 
 
 import sys
+print(sys.path)
 sys.path.append("/challenge/code")
 
 from code.unsafe_code import list_files
