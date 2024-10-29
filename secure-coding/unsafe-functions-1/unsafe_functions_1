@@ -2,15 +2,13 @@
 
 import unittest
 import subprocess 
+import unsafe_code
 
 from unittest.mock import patch, MagicMock
-from . import unsafe_code
 
 class TestListFiles(unittest.TestCase):
-    @patch('subprocess.check_output')
-    def test_list_files(self, mock_check_output):
-        mock_check_output.return_value = "file1.txt\nfile2.txt"
-        result = unsafe_code.list_files('/some/directory')
+    def test_list_files(self):
+        result = unsafe_code.list_files('./some/directory')
         self.assertEqual(result, ["file1.txt", "file2.txt"])
 
     @patch('subprocess.check_output', side_effect=subprocess.CalledProcessError(1, 'ls'))
