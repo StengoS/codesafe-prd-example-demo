@@ -1,1 +1,3 @@
-Codesafe Dojo Demo for the Tools Competition's "Building an Adaptive & Competitive Workforce" Track Product Review Day (Oct. 2024).
+Codesafe Testing Demo
+
+- secure-coding: Demo challenge made for Product Review Day (Oct. 2024)

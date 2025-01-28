@@ -1,8 +1,7 @@
-id: codesafe-prd
-name: Codesafe - PRD Demo
+id: codesafe-test
+name: Codesafe Testing
 type: topic
-password: codesafe-prd!
 modules:
   - id: hello
-  - id: world
+  - id: refactoring
   - id: secure-coding

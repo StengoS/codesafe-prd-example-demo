@@ -1,0 +1,8 @@
+#!/opt/pwn.college/python
+
+## You should not be able to read this!
+
+print("You've completed the tutorial! Printing your flag...")
+
+with open("/flag") as f:
+    print(f.read())
