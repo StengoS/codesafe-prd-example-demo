@@ -1,3 +1,3 @@
 #!/bin/bash
 
-chmod 
+python3 /challenge/checker
