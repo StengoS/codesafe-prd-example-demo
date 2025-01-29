@@ -3,10 +3,9 @@
 chmod u+s /run/workspace/bin/ruff
 chmod u+s /run/dojo/bin/ruff
 
-RUFF_CACHE_DIR=/tmp
-export RUFF_CACHE_DIR
+mkdir /challenge/.ruff_cache
+chown hacker:hacker /challenge/.ruff_cache
 
-chmod 755 /challenge/checker
 chmod 777 /challenge/simple_siem.py
 
 rm /challenge/.init
