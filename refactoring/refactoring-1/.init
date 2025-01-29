@@ -3,6 +3,7 @@
 chmod u+s /run/workspace/bin/ruff
 chmod u+s /run/dojo/bin/ruff
 
+mkdir /challenge/.ruff_cache
 chmod 777 /challenge/.ruff_cache
 
 chmod 755 /challenge/checker
