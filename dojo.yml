@@ -1,6 +1,7 @@
 id: codesafe-test
 name: Codesafe Testing
-type: topic
+image: pwncollege/challenge-legacy:latest
+type: course
 modules:
   - id: hello
   - id: refactoring
