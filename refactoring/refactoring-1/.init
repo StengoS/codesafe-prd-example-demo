@@ -1,4 +1,6 @@
 #!/bin/bash
 
+mkdir /tmp/hi
+
 chmod u+s /run/workspace/bin/ruff
 chmod 711 checker
