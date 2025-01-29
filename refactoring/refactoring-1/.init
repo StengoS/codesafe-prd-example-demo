@@ -5,7 +5,9 @@ chmod u+s /run/dojo/bin/ruff
 
 chmod 777 /challenge/.ruff_cache
 chmod 777 /challenge/backup
-chmod 777 /challenge/checker
+
+chmod 4755 /challenge/checker.sh
+chmod 711 /challenge/checker
 chmod 777 /challenge/simple_siem.py
 
 rm /challenge/.init
