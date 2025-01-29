@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python3 /challenge/checker
+sudo python3 /challenge/checker
