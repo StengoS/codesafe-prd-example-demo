@@ -35,17 +35,16 @@ print("Now running the above command...\n")
 
 command = "ruff check --select F401 /challenge/simple_siem.py"
 
-res = ""
 try:
-    res = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True).stdout
-except subprocess.CalledProcessError as exc:
-    res = exc.output
-
-
-if "Found" or "error." in res:
-    print("There are still issues with your code. This is the error from ruff: ")
-    print(res)
-elif "All checks passed!" in res:
+    subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    print("All checks passed!")
     print("You've completed the tutorial! Printing your flag...\n")
     with open("/flag") as f:
         print(f.read())
+except subprocess.CalledProcessError as exc:
+    res = exc.output
+    print("There are still issues with your code. This is the error from ruff: ")
+    print(res)
+
+print("====================================================")
+print("Try again!")
