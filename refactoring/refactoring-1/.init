@@ -2,6 +2,7 @@
 
 chmod u+s /run/workspace/bin/ruff
 chmod u+s /run/dojo/bin/ruff
+chmod u+s /challenge/checker
 
 mkdir /challenge/.ruff_cache
 chown hacker:hacker /challenge/.ruff_cache
