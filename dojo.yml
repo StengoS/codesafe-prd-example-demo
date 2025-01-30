@@ -3,6 +3,6 @@ name: Codesafe Testing
 image: pwncollege/challenge-legacy:latest
 type: course
 modules:
-  - id: platform_tutorial
+  - id: platform-tutorial
   - id: refactoring
-  - id: secure_coding
+  - id: secure-coding
