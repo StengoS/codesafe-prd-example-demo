@@ -2,16 +2,15 @@
 
 import unittest
 import subprocess 
-import sys
-sys.path.append("/home/hacker")
 
 import unsafe_code
 
 from unittest.mock import patch, MagicMock
 
+
 class TestListFiles(unittest.TestCase):
     def test_list_files(self):
-        result = unsafe_code.list_files('./some/directory')
+        result = unsafe_code.list_files('/challenge/some/directory')
         self.assertEqual(result, ["file1.txt", "file2.txt"])
 
     @patch('subprocess.check_output', side_effect=subprocess.CalledProcessError(1, 'ls'))
