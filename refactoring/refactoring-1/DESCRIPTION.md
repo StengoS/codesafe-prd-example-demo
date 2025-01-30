@@ -10,7 +10,11 @@ $ ./checker
 ```
 The executable will then give you further instructions.
 
-NOTE: You are also able to run 'checker' by doing `$ python3 checker`. This is usually fine, but for this environment 
-and platform, due to how permissions are handled so that you cannot simply read the flag, you MUST run 'checker' by
+NOTE: For a Python file, you would usually run it by doing `$ python3 [filename]`. For this environment and platform, 
+due to how permissions are handled so that you cannot simply read the flag, you MUST run `checker` by
 doing `$ ./checker` so that it can successfully read the flag and print it in the terminal. If you complete the tasks
-for the challenges but use `$ python3 checker`, it will say all checks have passed but is unable to read the flag.
+for the challenges but use `$ python3 checker`, you will get an error in the terminal (the file won't actually be
+executed).
+
+In addition, you will get an error if you try to read the `checker` file / open it up in VSCode. This is intentional.
+Again, you MUST run `checker` as specified above.

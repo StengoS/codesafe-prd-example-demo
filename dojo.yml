@@ -10,6 +10,7 @@ modules:
       - id: start-here
         name: Start Here
 
+
   - id: refactoring
     name: Refactoring
     description: Refactoring! Under development.
@@ -22,6 +23,12 @@ modules:
       - name: "INF122 Lecture 7 - Refactoring"
         type: lecture
         slides: 12XaYW82S8faCfWoDvt2JRPjN8VR0rSQ0
+      - name: "Helpful Documentation"
+        type: markdown
+        content: |
+          - [Ruff Documentation](https://docs.astral.sh/ruff/)
+          - [List of Ruff Rules](https://docs.astral.sh/ruff/rules/)
+
 
   - id: secure-coding
     name: Secure Coding

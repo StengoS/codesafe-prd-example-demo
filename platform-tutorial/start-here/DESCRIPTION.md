@@ -35,5 +35,9 @@ The flag can then be copy-pasted into the "Flag" input box in the challenge's dr
 complete the challenge. Your goal in each challenge is to follow the instructions and complete what is asked to get the flag.
 
 
-NOTE: You are also able to run 'start_here' by doing `$ python3 start_here` in the `/challenge` folder. This is usually fine, 
-but for this environment and platform, due to how permissions are handled so that you cannot simply read the flag, you MUST run 'start_here' by doing `$ ./start_here` so that it can successfully read the flag and print it in the terminal. If you complete the tasks for the challenges but use `$ python3 start_here`, it will say all checks have passed but is unable to read the flag.
+NOTE: You are also able to run `start_here` by doing `$ python3 start_here` in the `/challenge` folder. This is usually fine, 
+but for this environment and platform, due to how permissions are handled so that you cannot simply read the flag, you MUST run
+'start_here' by doing `$ ./start_here` so that it can successfully read the flag and print it in the terminal. If you use `$ python3 start_here`, it will execute but will be unable to read the flag.
+
+In addition, you won't always be able to read everything in the `/challenge` directory. We will explain more in the next 
+tutorial challenge.
