@@ -2,3 +2,6 @@ name: Refactoring
 challenges:
   - id: refactoring-1
     name: Tutorial 1
+  - id: refactoring-2
+    name: Tutorial 2
+  

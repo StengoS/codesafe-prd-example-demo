@@ -4,5 +4,19 @@ image: pwncollege/challenge-legacy:latest
 type: course
 modules:
   - id: platform-tutorial
+
   - id: refactoring
+    name: Refactoring
+    description: Refactoring!
+    challenges:
+      - id: refactoring-1
+        name: Tutorial 1
+      - id: refactoring-2
+        name: Tutorial 2
+    resources:
+      - name: "INF122 Lecture 7 - Refactoring"
+        type: lecture
+        slides: 12XaYW82S8faCfWoDvt2JRPjN8VR0rSQ0
+
   - id: secure-coding
+
