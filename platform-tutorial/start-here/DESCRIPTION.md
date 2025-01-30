@@ -18,12 +18,13 @@ of developing code. "Start" this challenge, and then you can interact with it by
 If you are unfamiliar with VSCode, here are the quick basics to get going:
 - To open a terminal: Click on the three-lines icon at the top-left, hover over "Terminal", and click "New Terminal".
 - To open up a specific folder in the left-hand sidebar: Click on the three-lines icon at the top-left, hover over "File", click on "Open Folder...". In the pop-up, you can then specify the folder you want to open up.
+    - When opening up the VSCode workspace for the first time, you should be able to simply click on "Open Folder" to get to the pop-up.
 - If you'd like to change it to dark-mode: Click on the gear icon at the bottom-left, hover over "Themes", click "Color Theme", and click on one of the themes listed under "dark themes".
 
 For each challenge, make sure to read these descriptions! They will often have instructions to help you get started and 
 also teach you something new. 
 
-To complete this challenge, do the following in the VSCode workspace:
+To complete this challenge, open up a terminal in the VSCode workspace and then run the following commands:
 ```
 $ cd /challenge
 $ ./start_here

@@ -8,6 +8,6 @@ mkdir /challenge/.ruff_cache
 chown hacker:hacker /challenge/.ruff_cache
 
 chmod 777 /challenge/simple_siem.py
-chmod 711 /challenge/checker
+chmod 4711 /challenge/checker
 
 rm /challenge/.init
