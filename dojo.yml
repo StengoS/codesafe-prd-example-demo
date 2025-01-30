@@ -4,10 +4,15 @@ image: pwncollege/challenge-legacy:latest
 type: course
 modules:
   - id: platform-tutorial
+    name: Platform Tutorial
+    description: Start here! This will be a tutorial on how to use this platform and start working on the challenges.
+    challenges:
+      - id: start-here
+        name: Start Here
 
   - id: refactoring
     name: Refactoring
-    description: Refactoring!
+    description: Refactoring! Under development.
     challenges:
       - id: refactoring-1
         name: Tutorial 1
@@ -19,4 +24,15 @@ modules:
         slides: 12XaYW82S8faCfWoDvt2JRPjN8VR0rSQ0
 
   - id: secure-coding
+    name: Secure Coding
+    description: Secure coding! Under development.
+    challenges:
+      - id: unsafe-functions-1
+        name: Unsafe Functions 1
+    resources:
+      - name: "Learn More"
+        type: markdown
+        content: |
+          - [OWASP Reference on Command Injection](https://owasp.org/www-community/attacks/Command_Injection)
+          - [PortSwigger Reference on OS Command Injection](https://portswigger.net/web-security/os-command-injection)
 
