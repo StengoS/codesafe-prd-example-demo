@@ -2,3 +2,5 @@ name: Platform Tutorial
 challenges:
   - id: start-here
     name: Start Here
+  - id: format-of-challenges
+    name: Format of Challenges

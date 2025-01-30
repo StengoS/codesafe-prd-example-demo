@@ -9,6 +9,8 @@ modules:
     challenges:
       - id: start-here
         name: Start Here
+      - id: format-of-challenges
+        name: Format of Challenges
 
 
   - id: refactoring
@@ -23,11 +25,12 @@ modules:
       - name: "INF122 Lecture 7 - Refactoring"
         type: lecture
         slides: 12XaYW82S8faCfWoDvt2JRPjN8VR0rSQ0
-      - name: "Helpful Documentation"
+      - name: "Helpful Documentation and References"
         type: markdown
         content: |
           - [Ruff Documentation](https://docs.astral.sh/ruff/)
           - [List of Ruff Rules](https://docs.astral.sh/ruff/rules/)
+          - [Refactoring.guru](https://refactoring.guru/refactoring) 
 
 
   - id: secure-coding
