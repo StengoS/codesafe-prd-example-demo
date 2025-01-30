@@ -34,6 +34,7 @@ $ ./start_here
 The flag can then be copy-pasted into the "Flag" input box in the challenge's drop-down (right below the "Start" button) to
 complete the challenge. Your goal in each challenge is to follow the instructions and complete what is asked to get the flag.
 
+You should be able to copy-paste the flag from the VSCode workspace terminal to the main site.
 
 NOTE: You are also able to run `start_here` by doing `$ python3 start_here` in the `/challenge` folder. This is usually fine, 
 but for this environment and platform, due to how permissions are handled so that you cannot simply read the flag, you MUST run
