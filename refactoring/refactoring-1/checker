@@ -28,7 +28,7 @@ print("Let's break down this command: \n",
     "\t* '--select' - an option to specify ruff to check only certain rules.\n",
     "\t* 'F401' - a lint rule defined by ruff, 'unused-import', which you can read more about here: https://docs.astral.sh/ruff/rules/unused-import/.\n",
     "\t* '/challenge/simple_siem.py' - specify the exact file you want ruff to lint.\n") 
-print("We won't always have this in-depth breakdown, so you may have to do your own research, which we encourage!\n")
+print("We won't always have this in-depth breakdown, so you may have to do your own research in later challenges, which we encourage!\n")
 
 print("====================================================")
 print("Now running the above command...\n")
@@ -38,13 +38,13 @@ command = "ruff check --select F401 /challenge/simple_siem.py"
 try:
     subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     print("All checks passed!")
-    print("You've completed the tutorial! Printing your flag...\n")
+    print("You've completed the tutorial! Printing your flag below...\n")
     with open("/flag") as f:
         print(f.read())
 except subprocess.CalledProcessError as exc:
     res = exc.output
     print("There are still issues with your code. This is the error from ruff: ")
     print(res)
+    print("Try again!")
 
 print("====================================================")
-print("Try again!")
