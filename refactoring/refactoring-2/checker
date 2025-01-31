@@ -109,8 +109,10 @@ def run_tests(test_case):
 
 print("In this last tutorial for this module on refactoring, you are asked by your boss to make sure the code is",
     "not using any constants in any logic that involves comparisons. They anticipate the codebase to grow exponentially",
-    "quick, and it'd be annoying to go change values manually at every single location it matters. For now, set thresholds",
-    "for error logs to be at 5 logs.")
+    "quick, and it'd be annoying to go change values manually at every single location it matters. Fortunately, there's",
+    "not a lot to change at the moment.")
+
+print("For now, set thresholds for error logs to be at 5 logs.")
 
 print("This time, there are also test cases to make sure SimpleSIEM operates as usual after your refactoring! That way,",
     "you can't just delete the function and call it a day.")
@@ -134,11 +136,14 @@ try:
     print("All linter checks passed!")
 
     print("Now checking test cases...\n")
+    print("=== TEST CASES' OUTPUT BELOW ===")
     if run_tests(TestSimpleSIEM):
+        print("=== END TEST CASES OUTPUT ===")
         print("You've completed the challenge! Printing your flag below...\n")
         with open("/flag") as f:
             print(f.read())
     else:
+        print("=== END TEST CASES OUTPUT ===")
         print("Some tests fail. Please review the test cases and errors, then try again.")
 except subprocess.CalledProcessError as exc:
     res = exc.output
