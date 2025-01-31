@@ -1,18 +1,144 @@
 #!/opt/pwn.college/python
 
-import subprocess
+import unittest
+import subprocess 
+import sys
+sys.path.append("/challenge")
+
+from simple_siem import *
 
 
-print("== INCOMPLETE PLEASE IGNORE ==")
+class TestSimpleSIEM(unittest.TestCase):
+    def setUp(self):
+        # Create a SimpleSIEM instance for testing
+        self.siem = SimpleSIEM()
 
-command = "ruff check --select F401 /challenge/simple_siem.py"
+    def test_ingest_log(self):
+        # Test log ingestion
+        self.siem.ingest_log("ERROR: Failed to authenticate user")
+        self.siem.ingest_log("INFO: User logged in")
+        self.siem.ingest_log("WARNING: Disk usage above 80%")
+
+        # Verify logs were ingested
+        self.assertEqual(len(self.siem.logs), 3)
+        self.assertIn("ERROR: Failed to authenticate user", self.siem.logs)
+        self.assertIn("INFO: User logged in", self.siem.logs)
+        self.assertIn("WARNING: Disk usage above 80%", self.siem.logs)
+
+    def test_query_logs(self):
+        # Ingest some logs
+        self.siem.ingest_log("ERROR: Failed to authenticate user")
+        self.siem.ingest_log("INFO: User logged in")
+        self.siem.ingest_log("WARNING: Disk usage above 80%")
+        self.siem.ingest_log("CRITICAL: Database connection failed")
+
+        # Test querying for ERROR logs
+        error_logs = self.siem.query_logs("ERROR")
+        self.assertEqual(len(error_logs), 1)
+        self.assertIn("ERROR: Failed to authenticate user", error_logs)
+
+        # Test querying for CRITICAL logs
+        critical_logs = self.siem.query_logs("CRITICAL")
+        self.assertEqual(len(critical_logs), 1)
+        self.assertIn("CRITICAL: Database connection failed", critical_logs)
+
+        # Test querying for a non-existent keyword
+        no_logs = self.siem.query_logs("DEBUG")
+        self.assertEqual(len(no_logs), 0)
+
+    def test_check_errors_with_threshold_below(self):
+        # Ingest logs below the threshold
+        self.siem.ingest_log("ERROR: Failed to authenticate user")
+        self.siem.ingest_log("INFO: User logged in")
+        self.siem.ingest_log("WARNING: Disk usage above 80%")
+
+        # Test error threshold check
+        with self.assertLogs(level="INFO") as log:
+            self.siem.check_errors_with_threshold()
+            self.assertIn("Amount of errors under set threshold.", log.output[0])
+
+    def test_check_errors_with_threshold_above(self):
+        # Ingest logs above the threshold
+        self.siem.ingest_log("ERROR: Failed to authenticate user")
+        self.siem.ingest_log("ERROR: Failed to authenticate user")
+        self.siem.ingest_log("ERROR: Failed to authenticate user")
+        self.siem.ingest_log("ERROR: Disk full")
+        self.siem.ingest_log("CRITICAL: Database connection failed")
+        self.siem.ingest_log("CRITICAL: Out of memory")
+        self.siem.ingest_log("CRITICAL: Kernel panic")
+
+        # Test error threshold check
+        with self.assertLogs(level="INFO") as log:
+            self.siem.check_errors_with_threshold()
+            self.assertIn("High amount of errors detected!", log.output[0])
+
+    def test_check_errors_with_threshold_exact(self):
+        # Ingest logs exactly at the threshold
+        self.siem.ingest_log("ERROR: Failed to authenticate user")
+        self.siem.ingest_log("ERROR: Failed to authenticate user")
+        self.siem.ingest_log("ERROR: Disk full")
+        self.siem.ingest_log("CRITICAL: Database connection failed")
+        self.siem.ingest_log("CRITICAL: Out of memory")
+
+        # Test error threshold check
+        with self.assertLogs(level="INFO") as log:
+            self.siem.check_errors_with_threshold()
+            self.assertIn("High amount of errors detected!", log.output[0])
+
+
+# Taken from https://stackoverflow.com/questions/13550039/how-to-use-python-unit-tests-in-self-contained-program
+def run_tests(test_case):
+    case = unittest.TestLoader().loadTestsFromTestCase(test_case)
+    result = unittest.TestResult()
+    case(result)
+    if result.wasSuccessful():
+        print("{0}/{0} tests passed!".format(result.testsRun))
+        return True
+    
+    else:
+        print("{0}/{1} tests failed!".format(len(result.failures), result.testsRun))
+        for test, err in result.failures + result.errors:
+            print("===================")
+            print(test)
+            print(err)
+        
+        print("===================")
+        return False
+
+
+print("In this last tutorial for this module on refactoring, you are asked by your boss to make sure the code is",
+    "not using any constants in any logic that involves comparisons. They anticipate the codebase to grow exponentially",
+    "quick, and it'd be annoying to go change values manually at every single location it matters. For now, set thresholds",
+    "for error logs to be at 5 logs.")
+
+print("This time, there are also test cases to make sure SimpleSIEM operates as usual after your refactoring! That way,",
+    "you can't just delete the function and call it a day.")
+
+print("This challenge will run the following command against 'simple_siem.py': ")
+print("$ ruff check --select PLR2004 /challenge/simple_siem.py\n")
+
+print("You should consult Ruff's rules documentation to figure out what PLR2004 is, but you can also figure it",
+    "out based on the error messages from ruff.\n")
+
+print("This challenge will also run the usage test cases.")
+
+print("====================================================")
+print("Now running the above command...\n")
+
+
+command = "ruff check --select PLR2004 /challenge/simple_siem.py"
 
 try:
     subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    print("All checks passed!")
-    print("You've completed the tutorial! Printing your flag below...\n")
-    with open("/flag") as f:
-        print(f.read())
+    print("All linter checks passed!")
+
+    print("Now checking test cases...\n")
+    if run_tests(TestSimpleSIEM):
+        print("You've completed the challenge! Printing your flag below...\n")
+        with open("/flag") as f:
+            print(f.read())
+    else:
+        print("Some tests fail. Please review the test cases and errors, then try again.")
 except subprocess.CalledProcessError as exc:
     res = exc.output
     print("There are still issues with your code. This is the error from ruff: ")

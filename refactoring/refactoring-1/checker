@@ -37,8 +37,8 @@ command = "ruff check --select F401 /challenge/simple_siem.py"
 
 try:
     subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    print("All checks passed!")
-    print("You've completed the tutorial! Printing your flag below...\n")
+    print("All linter checks passed!")
+    print("You've completed the challenge! Printing your flag below...\n")
     with open("/flag") as f:
         print(f.read())
 except subprocess.CalledProcessError as exc:

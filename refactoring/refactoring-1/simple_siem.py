@@ -19,6 +19,7 @@ class SimpleSIEM:
         print(f"Query results for '{keyword}': {results}")
         return results
 
+
 # Example usage
 """
 siem = SimpleSIEM()
