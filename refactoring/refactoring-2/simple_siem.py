@@ -1,15 +1,21 @@
+import logging
+
+
 class SimpleSIEM:
     def __init__(self):
         # In-memory log storage
         self.logs = []
+        logging.basicConfig(level=logging.INFO)
     
     def get_version_info(self):
-        print("Simple SIEM v0.02")
+        curr_version = "SIMPLE SIEM v0.02"
+        logging.info(f"{curr_version}")
+        return curr_version
 
     # Simulate log ingestion
     def ingest_log(self, log):
         self.logs.append(log)
-        print(f"Ingested log: {log}")
+        logging.info(f"Ingested log: {log}")
 
     # Simulate log querying
     def query_logs(self, keyword):
@@ -24,9 +30,9 @@ class SimpleSIEM:
         total = len(error_logs) + len(critical_logs)
 
         if total >= 5:
-            print("High amount of errors detected!")
+            logging.info("High amount of errors detected!")
         else:
-            print("Amount of errors under set threshold.")
+            logging.info("Amount of errors under set threshold.")
 
 
 # Example usage

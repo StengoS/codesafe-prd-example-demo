@@ -4,6 +4,7 @@ import unittest
 import subprocess 
 import sys
 sys.path.append("/challenge")
+import logging
 
 from simple_siem import *
 

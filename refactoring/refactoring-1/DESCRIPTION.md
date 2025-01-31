@@ -3,7 +3,7 @@ completing the challenges in this specific module. "Start" this challenge, and t
 by clicking on "Workspace" in the site's navigation bar or "VSCode Workspace" in the pop-up after the
 challenge has successfully started. 
 
-Start by running the 'checker' Python executable by doing the following in the terminal: 
+Start by running the `checker` Python executable by doing the following in the terminal: 
 ```
 $ cd /challenge
 $ ./checker

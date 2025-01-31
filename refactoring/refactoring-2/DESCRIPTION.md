@@ -1,16 +1,13 @@
-Welcome to the refactoring module! This challenge will serve as the first tutorial to how you will mainly be
-completing the challenges in this specific module. "Start" this challenge, and then you can interact with it
-by clicking on "Workspace" in the site's navigation bar or "VSCode Workspace" in the pop-up after the
-challenge has successfully started. 
+In this last tutorial for this module on refactoring, you are asked by your boss to make sure the code is not using any
+constants in any logic that involves comparisons.
 
-Start by running the 'checker' Python executable by doing the following in the terminal: 
+This time, there are also test cases to make sure SimpleSIEM operates as usual after your refactoring! That way, you can't 
+just delete the function and call it a day. Usage test cases will continue to be something else you have to consider moving
+forward. You can check the list of test cases in `checker` under the `TestSimpleSIEM` class.
+
+Start by running the `checker` Python executable in `/challenge`. Make sure to run it with the following:
 ```
-$ cd /challenge
 $ ./checker
 ```
-The executable will then give you further instructions.
+The executable will give you further instructions.
 
-NOTE: You are also able to run 'checker' by doing `$ python3 checker`. This is usually fine, but for this environment 
-and platform, due to how permissions are handled so that you cannot simply read the flag, you MUST run 'checker' by
-doing `$ ./checker` so that it can successfully read the flag and print it in the terminal. If you complete the tasks
-for the challenges but use `$ python3 checker`, it will say all checks have passed but is unable to read the flag.
